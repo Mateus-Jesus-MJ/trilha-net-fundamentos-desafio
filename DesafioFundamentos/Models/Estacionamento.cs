@@ -69,7 +69,7 @@ namespace DesafioFundamentos.Models
             while (!int.TryParse(Console.ReadLine(), out horas) || horas < 0);
 
             decimal valorTotal = precoInicial + (horas * precoPorHora);
-            Console.WriteLine($"Valor total: R$ {valorTotal}");
+            Console.WriteLine($"Valor total: {valorTotal:C}");
 
             decimal valorPago = 0;
             decimal troco = 0;
@@ -79,13 +79,13 @@ namespace DesafioFundamentos.Models
                 Console.Write("R$ ");
                 while (!decimal.TryParse(Console.ReadLine(), out valorPago) || valorPago <= 0)
                 {
-                    Console.WriteLine("Valor inválido. Digite um valor decimal válido:");
+                    Console.WriteLine("Valor inválido. Digite um valor válido:");
                 }
 
                 troco = valorPago - valorTotal;
                 if (troco < 0)
                 {
-                    Console.WriteLine($"Restante: R$ {-troco}");
+                    Console.WriteLine($"Restante: {-troco:C}");
                     valorTotal -= valorPago;
                 }
 
@@ -93,8 +93,8 @@ namespace DesafioFundamentos.Models
 
             veiculos.Remove(placa);
 
-            Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorPago - troco}");
-            Console.WriteLine($"Troco: R$ {troco}");
+            Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: {valorPago - troco:C}");
+            Console.WriteLine($"Troco: {troco:C}");
 
         }
 
